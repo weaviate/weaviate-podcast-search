@@ -1,5 +1,7 @@
 Cleaning the podcasts with GPT3!
 
+I was surprised that this prompt didn't work
+
 ```
 Please clean the following raw audio transcription to remove "ums" and "likes", as well as generally read like it was written rather than spoken. Please also be mindful that the audio transcription often mistakes "Weaviate" with "V8" or "V eight", please correct this as well to reference "Weaviate".
 
