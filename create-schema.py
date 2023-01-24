@@ -31,6 +31,18 @@ schema = {
                    }
                },
                {
+                "name": "speaker",
+                "dataType": ["string"],
+                "description": "The speaker in the podcast",
+                "moduleConfig": {
+                    "text2vec-transformers": {
+                        "skip": True,
+                        "vectorizePropertyName": False,
+                        "vectorizeClassName": False
+                    }
+                }
+               },
+               {
                    "name": "podNum",
                    "dataType": ["int"],
                    "description": "The podcast number.",

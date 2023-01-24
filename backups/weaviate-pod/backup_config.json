@@ -1,0 +1,1 @@
+{"startedAt":"2023-01-24T18:26:36.976683417Z","completedAt":"2023-01-24T18:26:39.023941626Z","id":"weaviate-pod","nodes":{"node1":{"classes":["PodClip"],"status":"SUCCESS","error":""}},"status":"SUCCESS","version":"1.0","serverVersion":"1.17.1","error":""}
