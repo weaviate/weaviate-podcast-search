@@ -1,5 +1,6 @@
 import weaviate
-from weaviate.util import generate_uuid5, get_valid_uuid
+from weaviate.util import get_valid_uuid
+from uuid import uuid4
 import time
 import argparse
 
