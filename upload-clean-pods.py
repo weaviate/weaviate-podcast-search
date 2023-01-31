@@ -1,4 +1,5 @@
 import weaviate
+from weaviate.util import generate_uuid5, get_valid_uuid
 import time
 import argparse
 
@@ -18,12 +19,10 @@ for clean_pod_path in os.listdir(clean_pods_path):
             new_doc_obj = {}
             for key in json_dict.keys():
                 new_doc_obj[key] = json_dict[key]
-            new_doc_obj["podNum"] = int(clean_pod_path.replace("Weaviate-Podcast-", "").strip(".json"))
+            new_doc_obj["podNum"] = int(clean_pod_path.strip(".json"))
             corpus.append(new_doc_obj)
 
 client = weaviate.Client("http://localhost:8080")
-
-from weaviate.util import generate_uuid5
 
 doc_upload_start = time.time()
 for doc_idx, doc in enumerate(corpus):
@@ -32,7 +31,7 @@ for doc_idx, doc in enumerate(corpus):
         "speaker": doc["speaker"],
         "podNum": doc["podNum"]
     }
-    id = generate_uuid5(doc_idx)
+    id = get_valid_uuid(uuid4())
     #client.batch.add_data_object(data_properties, "Document", id, doc_vector)
     client.data_object.create(
         data_object = data_properties,
