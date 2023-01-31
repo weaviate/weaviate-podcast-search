@@ -9,7 +9,7 @@ services:
     - '8080'
     - --scheme
     - http
-    image: semitechnologies/weaviate:1.17.1
+    image: semitechnologies/weaviate:1.17.2
     ports:
     - 8080:8080
     restart: on-failure:0
@@ -26,7 +26,7 @@ services:
       CLUSTER_HOSTNAME: 'node1'
       ENABLE_EXPERIMENTAL_BM25: 'true'
   t2v-transformers:
-    image: cshorten/text2vec-sentencetransformers:all-MiniLM-L6-v2
+    image: semitechnologies/transformers-inference:sentence-transformers-paraphrase-MiniLM-L6-v2
     environment:
       ENABLE_CUDA: '0'
 ...
