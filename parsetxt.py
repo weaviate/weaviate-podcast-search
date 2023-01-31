@@ -1,4 +1,6 @@
-f = open("./data/34-text-dump.txt")
+podNumber = "25"
+
+f = open(f"./text-data/{podNumber}-text-dump.txt")
 
 content = f.readlines()
 
@@ -8,21 +10,53 @@ for line in content:
 
 all_data = all_data.replace("\n", "")
 all_data = all_data.replace("  ", " ")
-chunked = all_data.split("Connor*")[1:]
+
+speaker1 = "Connor"
+speaker2 = "Erik"
+speaker3 = "Etienne"
+#speaker4 = "Marco"
+
+
+
+chunked = all_data.split("*")
 
 transcriptions = []
-for chunk in chunked:
-    new_chunk = chunk.split("Dmitry*")
-    transcriptions.append({
-        "speaker": "Connor",
-        "content": new_chunk[0]
-    })
-    transcriptions.append({
-        "speaker": "Dmitry",
-        "content": new_chunk[1]
-    })
+for line in chunked:
+    print(line)
+    print("\n")
+    if f"{speaker1}:" in line:
+        line = line.replace(f"{speaker1}:", "")
+        transcriptions.append({
+            "speaker": f"{speaker1} Shorten",
+            "content": line,
+            "podNumber": int(podNumber)
+        })
+    elif f"{speaker2}:" in line:
+        line = line.replace(f"{speaker2}:", "")
+        transcriptions.append({
+            "speaker": f"{speaker2} Bernhardsson",
+            "content": line,
+            "podNumber": int(podNumber)
+        })
+    elif f"{speaker3}:" in line:
+        line = line.replace(f"{speaker3}:", "")
+        transcriptions.append({
+            "speaker": f"{speaker3} Dilocker",
+            "content": line,
+            "podNumber": int(podNumber)
+        })
+    '''
+    elif f"{speaker4}:" in line:
+        line = line.replace(f"{speaker4}:", "")
+        transcriptions.append({
+            "speaker": f"{speaker4} Bianco",
+            "content": line,
+            "podNumber": int(podNumber)
+        })
+    '''
+
 
 import json
 json_object = json.dumps(transcriptions, indent=4)
-with open("Weaviate-Podcast-34.json", "w") as outfile:
+with open(f"data/Weaviate-Podcast-{podNumber}.json", "w") as outfile:
     outfile.write(json_object)
