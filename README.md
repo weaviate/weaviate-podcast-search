@@ -7,4 +7,4 @@ docker-compose up -d
 python3 restore.py
 ```
 
-Happy searching! I hope you find this useful, thansk so much for watching the Weaviate Podcast!
+Happy searching! I hope you find this useful, thanks so much for watching the Weaviate Podcast!
