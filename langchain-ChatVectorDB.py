@@ -6,7 +6,6 @@ import weaviate
 client = weaviate.Client("http://localhost:8080")
 
 vectorstore = Weaviate(client, "PodClip", "content")
-# ^ Better explain the Weavaite Class - Property here
 
 MyOpenAI = OpenAI(temperature=0.2, 
     openai_api_key="ENTER YOUR OPENAI KEY HERE")
