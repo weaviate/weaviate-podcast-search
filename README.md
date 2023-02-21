@@ -1,6 +1,8 @@
 # weaviate-podcast-search
 Search through the Weaviate Podcast!
 
+Check out the blog here - https://weaviate.io/blog/weaviate-podcast-search!
+
 To run:
 ```
 docker-compose up -d
