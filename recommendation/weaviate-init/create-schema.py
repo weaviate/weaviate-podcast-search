@@ -32,7 +32,7 @@ schema = {
                },
                {
                 "name": "speaker",
-                "dataType": ["text"],
+                "dataType": ["string"],
                 "description": "The speaker in the podcast",
                 "moduleConfig": {
                     "text2vec-transformers": {
@@ -55,18 +55,38 @@ schema = {
                    }
                },
                {
-                   "name": "summary",
-                   "dataType": ["text"],
-                   "description": "An LLM-generated summary of the podcast clip.",
-                   "moduleConfig": {
-                       "text2vec-transformers": {
-                           "skip": True,
-                           "vectorizePropertyName": False,
-                           "vectorizeClassName": False
-                       }
+                "name": "summary",
+                "dataType": ["text"],
+                "description": "An LLM-generated summary of a podcast clip.",
+                "moduleConfig": {
+                    "text2vec-transformers": {
+                        "skip": True,
+                        "vectorizePropertyName": False,
+                        "vectorizeClassName": False
+                    }
                    }
                }
            ]
+       },{
+          "class": "User",
+          "description": "A user of the podcast recommendation app.",
+          "properties": [
+            {
+                "name": "sessionNumber",
+                "description": "May Deprecate.",
+                "dataType": ["int"]
+            },{
+                "name": "likedClip",
+                "description": "Creef to liked clips, used to vectorize User.",
+                "dataType": ["PodClip"]
+            }
+          ],
+          "moduleConfig": {
+            "ref2vec-centroid": {
+                "referenceProperties": ["likedClip"]
+            }
+          },
+          "vectorizer": "ref2vec-centroid"
        }
    ]
 }
