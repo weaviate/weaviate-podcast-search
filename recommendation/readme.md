@@ -2,7 +2,11 @@
 
 Welcome to the Podcast Clip Recommendation Demo using Weaviate's `ref2vec`!
 
-To run, first init Weaviate with:
+To run, first download the backup from here
+
+Google Drive Link: https://drive.google.com/file/d/1Cbp4QtAB0dpmSh88NMuuGfb3jboe89xi/view?usp=sharing
+
+Then run Weaviate with:
 
 ```bash
 cd weaviate-init
