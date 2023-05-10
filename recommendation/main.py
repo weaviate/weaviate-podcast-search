@@ -29,6 +29,7 @@ client = weaviate.Client("http://localhost:8080")
 # start a new User session
 data_properties = {"sessionNumber": 0}
 user_id = get_valid_uuid(uuid4())
+print(user_id)
 client.data_object.create(data_properties, "User", user_id)
 
 @app.get("/", response_class=HTMLResponse)
@@ -56,13 +57,8 @@ async def image_clicked(data: dict, request: Request):
         )
 
     user_vector, user_clicks = get_user_vector_and_clicks(user_id, client)
-    print("\n")
-    print("USER CLICKS AFTER")
-    print(user_clicks)
-    print("\n")
     
     if len(user_vector) < 1:
-        print("HERE GENERATING RANDOM VECTOR TO SEARCH WITH")
         user_vector = np.random.rand(384,)
 
     data = populate_query(user_vector, client)

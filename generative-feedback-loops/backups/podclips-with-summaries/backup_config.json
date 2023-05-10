@@ -1,1 +1,1 @@
-{"startedAt":"2023-05-09T18:40:52.083419677Z","completedAt":"2023-05-09T18:40:54.155059678Z","id":"podclips-with-summaries","nodes":{"node1":{"classes":["PodClip","User"],"status":"SUCCESS","error":""}},"status":"SUCCESS","version":"1.0","serverVersion":"1.18.0","error":""}
+{"startedAt":"2023-05-10T11:38:37.311599253Z","completedAt":"2023-05-10T11:38:39.390222254Z","id":"podclips-with-summaries","nodes":{"node1":{"classes":["PodClip","User"],"status":"SUCCESS","error":""}},"status":"SUCCESS","version":"1.0","serverVersion":"1.18.0","error":""}
