@@ -22,6 +22,7 @@ services:
       PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
       DEFAULT_VECTORIZER_MODULE: 'text2vec-transformers'
       ENABLE_MODULES: 'text2vec-transformers,backup-filesystem,generative-openai'
+      OPENAI_APIKEY: ''
       BACKUP_FILESYSTEM_PATH: '/tmp/backups'
       CLUSTER_HOSTNAME: 'node1'
       ENABLE_EXPERIMENTAL_BM25: 'true'
