@@ -14,12 +14,7 @@ client = weaviate.Client("http://localhost:8080")
 get_first_object_weaviate_query = """
 {
   Get {
-    PodClip(
-      sort: 
-      [{
-        path: ["_creationTimeUnix"], 
-        order: desc
-      }]){
+    PodClip {
       _additional {
         id
       }
