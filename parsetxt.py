@@ -1,6 +1,6 @@
-podNumber = "25"
+podNumber = "55"
 
-f = open(f"./text-data/{podNumber}-text-dump.txt")
+f = open(f"./{podNumber}-clean-text.txt")
 
 content = f.readlines()
 
@@ -12,8 +12,8 @@ all_data = all_data.replace("\n", "")
 all_data = all_data.replace("  ", " ")
 
 speaker1 = "Connor"
-speaker2 = "Erik"
-speaker3 = "Etienne"
+speaker2 = "Aleksa"
+#speaker3 = "Gunjan"
 #speaker4 = "Marco"
 
 
@@ -21,42 +21,49 @@ speaker3 = "Etienne"
 chunked = all_data.split("*")
 
 transcriptions = []
-for line in chunked:
+for counter, line in enumerate(chunked):
     print(line)
+    line = line.replace('\u2019', '')
     print("\n")
     if f"{speaker1}:" in line:
         line = line.replace(f"{speaker1}:", "")
         transcriptions.append({
             "speaker": f"{speaker1} Shorten",
             "content": line,
-            "podNumber": int(podNumber)
+            "podNumber": int(podNumber),
+            "clipNumber": counter
         })
     elif f"{speaker2}:" in line:
         line = line.replace(f"{speaker2}:", "")
         transcriptions.append({
-            "speaker": f"{speaker2} Bernhardsson",
+            "speaker": f"{speaker2} Gordcic",
             "content": line,
-            "podNumber": int(podNumber)
+            "podNumber": int(podNumber),
+            "clipNumber": counter
         })
+    '''
     elif f"{speaker3}:" in line:
         line = line.replace(f"{speaker3}:", "")
         transcriptions.append({
-            "speaker": f"{speaker3} Dilocker",
+            "speaker": f"{speaker3} Bhattarai",
             "content": line,
-            "podNumber": int(podNumber)
+            "podNumber": int(podNumber),
+            "clipNumber": counter
         })
+    '''
     '''
     elif f"{speaker4}:" in line:
         line = line.replace(f"{speaker4}:", "")
         transcriptions.append({
             "speaker": f"{speaker4} Bianco",
             "content": line,
-            "podNumber": int(podNumber)
+            "podNumber": int(podNumber),
+            "clipNumber": counter
         })
     '''
 
 
 import json
 json_object = json.dumps(transcriptions, indent=4)
-with open(f"data/Weaviate-Podcast-{podNumber}.json", "w") as outfile:
+with open(f"data/{podNumber}.json", "w") as outfile:
     outfile.write(json_object)

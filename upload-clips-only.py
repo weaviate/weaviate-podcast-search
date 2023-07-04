@@ -1,3 +1,5 @@
+# Split into upload-all-pod-data, upload-clips
+
 import weaviate
 from weaviate.util import get_valid_uuid
 from uuid import uuid4
@@ -28,10 +30,12 @@ client = weaviate.Client("http://localhost:8080")
 doc_upload_start = time.time()
 for doc_idx, doc in enumerate(corpus):
     data_properties = {
-        "content": doc["content"],
-        "speaker": doc["speaker"],
-        "podNum": doc["podNum"]
+            "content": doc["content"],
+            "speaker": doc["speaker"],
+            "podNum": doc["podNum"]
     }
+    if "clipNumber" in doc.keys():
+        data_properties["clipNumber"]  = doc["clipNumber"]
     id = get_valid_uuid(uuid4())
     #client.batch.add_data_object(data_properties, "Document", id, doc_vector)
     client.data_object.create(

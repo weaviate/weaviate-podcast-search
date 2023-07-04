@@ -9,7 +9,7 @@ services:
     - '8080'
     - --scheme
     - http
-    image: semitechnologies/weaviate:1.19.0
+    image: semitechnologies/weaviate:1.18.0-rc.0
     ports:
     - 8080:8080
     restart: on-failure:0
@@ -22,7 +22,7 @@ services:
       PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
       DEFAULT_VECTORIZER_MODULE: 'text2vec-transformers'
       ENABLE_MODULES: 'text2vec-transformers,backup-filesystem,generative-openai'
-      OPENAI_APIKEY: ''
+      OPENAI_APIKEY: 'sk-foobar'
       BACKUP_FILESYSTEM_PATH: '/tmp/backups'
       CLUSTER_HOSTNAME: 'node1'
       ENABLE_EXPERIMENTAL_BM25: 'true'
