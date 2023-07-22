@@ -27,7 +27,7 @@ schema = {
                    "description": "An LLM-generated summary of the podcast clip.",
                    "moduleConfig": {
                        "text2vec-transformers": {
-                           "skip": False,
+                           "skip": True,
                            "vectorizePropertyName": False,
                            "vectorizeClassName": False
                        }
@@ -39,7 +39,7 @@ schema = {
                    "description": "The text content of the podcast clip",
                    "moduleConfig": {
                     "text2vec-transformers": {
-                        "skip": True,
+                        "skip": False,
                         "vectorizePropertyName": False,
                         "vectorizeClassName": False
                     }
